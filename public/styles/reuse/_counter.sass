@@ -1,0 +1,17 @@
+.counter
+  padding: 0
+  vertical-align: middle
+  // text-align: right
+  @extend %small-heading
+.counter-title
+  display: block
+  @extend %small-text
+  font-weight: 600
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+.counter-note
+  color: $secondary-text-color
+  @extend %small-text
+  @include bp-large
+    @include font($extra-small-text, $small-line)

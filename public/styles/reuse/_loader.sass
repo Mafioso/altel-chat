@@ -1,0 +1,28 @@
+$loader-duration: 1.6s
+
+.loader-container
+  padding: $gutter
+
+.loader
+  width: 1em
+  height: 1em
+  display: inline-block
+  position: relative
+  vertical-align: middle
+  border-radius: 50%
+  background-color: $normal-text-color
+  @extend %animation-hack
+  animation: loader $loader-duration infinite $ease-in-out-sine
+  .section-container &
+    background-color: white
+
+@keyframes loader
+  0%
+    opacity: 1
+    transform: scale(1)
+  50%
+    opacity: .6
+    transform: scale(1.1)
+  100%
+    opacity: 1
+    transform: scale(1)

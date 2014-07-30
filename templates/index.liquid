@@ -1,0 +1,115 @@
+{% layout 'chat-layout' %}
+
+{% block content %}
+<div class="chat">
+    <div class="chat-header">
+        <h1>Онлайн-консультант</h1>
+        <div class="chat-header-ctrl">
+            <button>&times;</button>
+        </div>
+    </div>
+
+    <div class="chat-body">
+        <ul class="chat-msgs">
+            <li class="chat-msg chat-msg--system">
+                June 15, 2014 at 9:28
+            </li
+        </ul>
+    </div>
+
+    <div class="chat-ctrls">
+        <button class="chat-ctrls-send js-fixture-send" type="button">Send</button>
+        <div class="chat-ctrls-save-and-write">
+            <button class="chat-ctrls-save">
+                <i class="icon icon-message"></i>
+            </button>
+            <div class="chat-ctrls-write-view">
+                <input class="chat-ctrls-write" type="text" placeholder="Написать сообщение" autofocus />
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+
+{% raw %}
+
+<script id="chat-msg--my" type="text/x-handlebars-template">
+    <li class="chat-msg chat-msg--my">
+        <figure class="chat-msg-pic"></figure>
+        <div class="chat-msg-view">
+            <div class="chat-msg-body">
+                {{{ msg }}}
+            </div>
+        </div>
+    </li>
+</script>
+
+<script id="chat-msg--their" type="text/x-handlebars-template">
+    <li class="chat-msg chat-msg--their">
+        <figure class="chat-msg-pic">
+            <img src="{{{ img }}}" alt="{{ name }}" />
+            <span class="chat-msg-pic-caption">
+                {{ name }}
+            </span>
+        </figure>
+        <div class="chat-msg-view">
+            <div class="chat-msg-body">
+                {{{ msg }}}
+            </div>
+        </div>
+    </li>
+</script>
+
+{% endraw %}
+
+<script type="text/javascript">
++function($) {
+    'use strict';
+
+    var $chatBody = $('.chat-body'),
+        $msgsList = $chatBody.find('.chat-msgs');
+
+    var myMsgSource = $('#chat-msg--my').html(),
+        theirMsgSource = $('#chat-msg--their').html(),
+        myMsgTemplate = Handlebars.compile(myMsgSource),
+        theirMsgTemplate = Handlebars.compile(theirMsgSource);
+
+    var msgs = [
+        ['they', '/public/images/chat/bot.jpg', 'Altelbot', 'Hi, Altelbot here! While we waiting for support team member to connect, can I ask you some personal details?'],
+        ['me', '', '', 'Yes'],
+        ['they', '/public/images/chat/bot.jpg', 'Altelbot', 'What is your name?'],
+        ['me', '', '', 'IronMan'],
+        ['they', 'bot.jpg', 'Altelbot', 'Nice to meet you, <strong>IronMan</s/public/images/chat/trong>!'],
+        ['they', '/public/images/chat/bot.jpg', 'Altelbot', 'Seems like <strong>Jack Sparrow</strong> is here! He will help you out.'],
+        ['they', '/public/images/chat/jack.jpg', 'Jack Sparrow', 'Hi, IronMan! How can I help you?']
+    ],
+        index = 0,
+        speed = 2500,
+        length = msgs.length,
+        timer = setInterval(pushMsg, speed);
+
+    function pushMsg() {
+
+        if (msgs[index][0] == 'me') {
+            var html = myMsgTemplate({ msg: msgs[index][3] });
+        } else {
+            var html = theirMsgTemplate({ img: msgs[index][1], name: msgs[index][2], msg: msgs[index][3] });
+        }
+
+        $msgsList.append(html);
+        $chatBody.scrollTop($chatBody.prop('scrollHeight'));
+
+        index++;
+
+        if ( index >= length) {
+            clearInterval(timer);
+        }
+    }
+
+}(jQuery, Handlebars);
+</script>
+
+{% endblock %}

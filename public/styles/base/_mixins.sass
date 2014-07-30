@@ -1,0 +1,42 @@
+// 1. Set a rem font size with pixel fallback
+@function calculateRem($size)
+  $remSize: $size / 16px
+  @return $remSize * 1rem
+
+@mixin font-size($size)
+  font-size: $size
+  font-size: calculateRem($size)
+
+@mixin font($size, $line-height)
+  @include font-size($size)
+  line-height: $line-height
+  line-height: calculateRem($line-height)
+
+// 2. Breakpoints
+@mixin bp-xlarge
+  @media only screen and (min-width: 82.5em)
+    @content
+
+@mixin bp-large
+  @media only screen and (max-width: 72em)
+    @content
+
+@mixin bp-medium
+  @media only screen and (max-width: 60em)
+    @content
+
+@mixin bp-gt-medium
+  @media only screen and (min-width: 60em)
+    @content
+
+@mixin bp-small
+  @media only screen and (max-width: 36em)
+    @content
+
+// 3. SVG background images with PNG and retina fallback
+@mixin background-image($name)
+  background-image: url(#{$image-path}/#{$name}.svg)
+  .no-svg &
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension})
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension})

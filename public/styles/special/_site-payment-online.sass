@@ -1,0 +1,16 @@
+.provider-list
+  @include scut-list-unstyled
+  padding-bottom: 0
+  text-align: center
+  li
+    display: inline-block
+  @include bp-large
+    text-align: left
+.provider-list-item
+  padding-right: $baseline 
+  opacity: .3
+  &.active, 
+  &:hover
+    opacity: 1
+    
+  

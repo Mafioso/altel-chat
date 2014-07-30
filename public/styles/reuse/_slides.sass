@@ -1,0 +1,213 @@
+%absolute-box
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+#carousel
+  padding: 0
+
+.slider-container,
+.slides
+  position: relative
+  height: 100%
+  width: 100%
+
+.item
+  @extend %absolute-box
+  @extend %animation-hack
+  transition-property: opacity
+  transition-duration: .3s
+  transition-timing-function: $ease-in-out-sine
+  overflow: hidden
+  opacity: 0
+  &.active
+    opacity: 1
+    z-index: 2
+
+.slide-visual,
+.slide-message,
+.slide-product
+  @extend %absolute-box
+
+.slide-visual,
+.slide-heading,
+.slide-product,
+.slide-cta,
+.slide-heading .extra
+  @extend %animation-hack
+  transition-property: transform, opacity
+  transition-duration: .8s
+  transition-timing-function: $ease-in-out-sine
+
+
+.slide-message
+  text-align: center
+  bottom: auto
+  width: 100%
+  padding: $gutter (1/12)*100%
+  &.slide-message--empty
+    padding: 0
+  .csstransforms &
+    transform: translateY(-50%)
+    top: 50%
+  .item-type-center &
+    text-align: center
+  .item-type-right &
+    text-align: right
+  .item-type-left &
+    text-align: left
+  .item-type-left &,
+  .item-type-center &,
+  .item-type-right &
+    @include bp-medium
+      text-align: center
+.slide-message-body
+  display: inline-block
+  // &.background--light
+  &.background--dark
+    color: white
+
+.slide-visual
+  text-align: center
+  background-repeat: no-repeat
+  background-position: 50% 50%
+  background-size: cover
+  
+  img
+    margin: auto
+    position: relative
+    display: block
+    // @include bp-medium
+    //   position: absolute
+    //   top: 50%
+    //   transform: translateY(-50%) scale(3.2)
+      // width: auto
+      // max-width: none
+      // height: 100%
+
+  // .active &
+  //   @include animation(hollywood 6s ease-out)
+  @include bp-medium
+    background-size: auto 100%
+    
+  .style-b &
+    transform: translateX(100%)
+  .active.style-b &
+    animation: none
+    transform: translateX(0)
+
+.slide-product
+  opacity: 0
+  transform: translateY(100%)
+  img
+    display: block
+    margin: auto
+    width: 100%
+    // @include bp-medium
+    //   position: absolute
+    //   top: 50%
+    //   width: auto
+    //   transform: translateY(-50%) scale(2)
+  .active &
+    opacity: 1
+    transform: translateY(0)
+    transition-duration: .2s
+    transition-delay: .6s
+    transition-timing-function: ease-in-out
+
+.slide-heading
+  // padding: 0 0 $gutter
+  display: block
+  @extend %epic-heading
+  font-weight: 400
+  text-transform: uppercase
+  opacity: 0
+  // @include transition-delay(.2s)
+  // @include transform(translateX(-100%))
+  img
+    display: block
+    width: 100%
+  .active &
+    opacity: 1
+    // @include transform(translateX(0))
+  .style-b &
+    transform: translateX(-100%)
+  .active.style-b &
+    transform: translateX(0)
+    transition-delay: .1s
+  .extra
+    @extend %small-heading
+    text-transform: none
+    display: block
+    .style-b &
+      transform: translateX(-100%)
+    .active.style-b &
+      transform: translateX(0)
+      transition-delay: .2s
+
+.slide-cta
+  opacity: 0
+  // @include transition-delay(.4s)
+  // @include transform(translateX(-100%))
+  padding-bottom: $small-line
+  .active &
+    // @include transform(translateX(0))
+    opacity: 1
+  .style-b &
+    transform: translateX(-100%)
+  .active.style-b &
+    transform: translateX(0)
+    transition-delay: .3s
+
+.slide-heading,
+.slide-message,
+.slide-message .extra
+  color: $normal-text-color
+
+@keyframes hollywood
+  0%
+    transform: scale(1)
+  100%
+    transform: scale(1.05)
+
+@keyframes: visual-slide-in
+  0%
+    transform: translateX(100%)
+    opacity: 0
+  100%
+    transform: translateX(0%)
+    opacity: 1
+
+@keyframes message-slide-in
+  0%
+    transform: translateX(-9999px)
+    opacity: 0
+  100%
+    transform: translateX(0)
+    opacity: 1
+
+.slide-indicators
+  position: absolute
+  width: 100%
+  bottom: 0
+  z-index: 200
+  @include scut-list-unstyled
+  text-align: center
+  padding-bottom: $gutter
+  > li
+    display: inline-block
+    padding: $baseline
+    vertical-align: middle
+    &:hover
+      cursor: pointer
+.s-circle
+  display: block
+  border-radius: 50%
+  width: .8em
+  height: .8em
+  background-color: $accent-color
+  opacity: .2
+  .active &
+    opacity: 1

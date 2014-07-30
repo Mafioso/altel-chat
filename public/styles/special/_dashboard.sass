@@ -1,0 +1,89 @@
+.dashboard-navigation-conatiner
+  // padding: $gutter
+
+.account-title-container
+  padding: $gutter 0
+  >:last-child
+    margin-bottom: 0
+.account-title
+  @extend %small-heading
+  padding: 0 0 $baseline
+  @include bp-medium
+    font-weight: normal
+    @include font($normal-text, $normal-line)
+.account-subtitle
+  padding: 0
+
+.account-info
+  padding: $gutter
+
+.current-balance-container
+  text-align: center
+
+.account-balance,
+.bonus-balance
+  @extend %epic-heading
+  font-weight: 400
+  padding-bottom: $baseline - 2px
+  border-bottom: 2px solid $accent-color
+  color: $accent-color
+  @include bp-small
+    padding-top: 0
+    @include font($normal-heading, $normal-heading-line)
+
+.bonus-balance
+  @include font($small-heading, $small-heading-line)
+  padding-top: $baseline
+  // color: $normal-text-color
+  font-weight: 600
+  border-color: transparent
+
+.account-balance-note, .bonus-balance-note
+  font-weight: 400
+  color: $secondary-text-color
+  @extend %small-text
+
+.counter-group
+  padding-top:    $baseline
+  padding-bottom: $small-line
+  .bonus &
+    padding-bottom: $gutter
+  @include bp-small
+    padding-bottom: $gutter
+
+.bonus-container
+  padding: $baseline $gutter
+
+.bonus
+  color: lighten($normal-text-color, 10%)
+  background-color: transparent
+  padding: ($gutter - 1px)
+  border: 1px dashed $normal-text-color
+
+.account-additional-info
+  @extend %small-text
+  padding: $gutter
+
+.charging-dates
+  color: $secondary-text-color
+  padding: 0 $gutter $small-line
+
+.additional-services
+  padding-top: $small-line
+  // color: $secondary-text-color
+  text-align: center
+  @include scut-list-unstyled
+  > li
+    padding: $baseline 0
+    &.active
+      color: $normal-text-color
+
+.bonus-counters
+  padding: $baseline
+  color: $secondary-text-color
+  text-align: center
+  // @extend %small-text
+  // .counter
+  //   @extend %normal-text
+  // .counter-title
+  //   @extend %extra-small-text

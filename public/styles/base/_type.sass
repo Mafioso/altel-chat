@@ -1,0 +1,135 @@
+%extra-small-text
+  @include font($extra-small-text, $small-line)
+%small-text
+  @include font($small-text, $small-line)
+%normal-text
+  @include font($normal-text, $normal-line)
+%small-heading
+  @include font($small-heading, $small-heading-line)
+%normal-heading
+  @include font($normal-heading, $normal-heading-line)
+%large-heading
+  @include font($large-heading, $large-heading-line)
+
+%heading-settings
+  font-weight:    400
+  display:        block
+  margin:         0
+%small-heading-settings
+  @extend %heading-settings
+  padding-top:    $baseline
+  margin-bottom: $baseline
+%larger-heading-settings
+  font-weight:    300
+  @extend %heading-settings
+  padding-top:    2*$baseline
+  margin-bottom: 2*$baseline
+
+%epic-heading
+  @extend %large-heading
+  @extend %larger-heading-settings
+
+.epic-heading
+  @extend %epic-heading
+
+.small-heading
+  @extend %small-heading
+
+h1
+  @extend %normal-heading
+  @extend %larger-heading-settings
+h2
+  @extend %small-heading
+  @extend %small-heading-settings
+h3,h4,h5,h6
+  font-weight: 600
+  @extend %normal-text
+  @extend %small-heading-settings
+
+%text-rhythm-settings
+  margin:           0
+  padding-top:      0
+  margin-bottom:   $normal-line
+  &.small-text, .small-text &
+    margin-bottom: $small-line
+
+p, ul, ol, dl
+  @extend %text-rhythm-settings
+
+// Images displayed inline, with no line-height
+img
+  display: inline-block
+  line-height: 0
+  margin: 0
+  padding: 0
+  height: auto
+  max-width: 100%
+
+// No italic, no! No, no! Stop it! No!
+em, i
+  font-style: normal
+  line-height: inherit
+
+strong, b, dt
+  font-weight: bold
+
+code, kbd, pre, samp, tt, var
+  margin: 0
+  cursor: auto
+  font-family: $monospace
+
+hr
+  height: 0
+  padding: 0
+  margin: 0
+  border: 0
+  border-top: 1px solid $border-color
+  margin-bottom: 2*$baseline - 1
+
+// Links
+a
+  line-height: inherit
+  text-decoration: none
+  word-wrap: break-word
+  color: $link-color
+  &:hover
+    color: $link-hover-color
+.active-link
+  color: $link-hover-color
+.u-link
+  border-bottom: 1px solid $secondary-text-color
+.iu-link
+  color: white
+  border-bottom: 1px solid $bg-color
+  &:hover
+    color: $normal-text-color
+  &.active-link
+    font-weight: bold
+
+sup, sub
+  @extend %small-text
+  line-height: 0
+  position: relative
+
+blockquote
+  margin: 0
+  padding: 0 0 $normal-line 2*$gutter
+  p
+    margin-bottom: 0
+
+cite
+  padding-top: $baseline
+  display: block
+  @extend %small-text
+  &:before
+    content: "#{$scut-mdash}"
+    padding-right: $baseline
+
+table
+  width: 100%
+
+.table1-2
+  width: 50%
+.caption,
+%caption
+  @extend %small-text

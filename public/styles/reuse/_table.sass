@@ -1,0 +1,22 @@
+.table1-3
+  width: (1/3)*100%
+.table2-3
+  width: (2/3)*100%
+
+.table2-5
+  width: (2/5)*100%
+
+.table3-5
+  width: (3/5)*100%
+
+table tr.tr--highlighted:nth-child(n)
+  color: white
+  background-color: $accent-color
+
+#zone1,
+#zone2,
+#zone3,
+#zone4
+  display: none
+  &.tr--highlighted
+    display: table-row

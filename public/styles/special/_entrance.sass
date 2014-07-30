@@ -1,0 +1,56 @@
+.entrance-logotype
+  display: block
+  width: 100%
+  padding: $gutter
+  .logotype-image
+    width: 100%
+    background-position: 50% 50%
+
+.entrance-container
+  text-align: center
+  margin-top: 3em
+  margin-bottom: 3em
+
+.entrance-title
+  @extend %small-heading
+  font-weight: 400
+  color: $secondary-text-color
+  text-align: center
+
+.entrance-alternative-path
+  top: auto
+  text-align: center
+
+.entrance-lang-switcher
+  @include scut-list-unstyled
+  text-align: center
+  padding: 0
+  > li
+    @extend %column
+  .lang-switcher-link
+    padding: 0 $gutter
+    display: block
+    &.active
+      color: $accent-color
+
+.captcha img
+  display: block
+
+.pin-help-container
+  display: inline-block
+  position: relative
+.pin-help
+  position: absolute
+  z-index: 1
+  width: 330px
+  height: 296px
+  left: 2em
+  bottom: 2em
+.pin-image
+  width: 100%
+  height: 100%
+  background-position: 0 0
+  background-repeat: no-repeat
+  background-image: url(#{$image-path}/pin-help.png)
+  @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)
+    background-image: url(#{$image-path}/pin-help@2x.png)

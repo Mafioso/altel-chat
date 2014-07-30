@@ -1,0 +1,46 @@
+.back-button
+  @extend %button
+  padding: $baseline $gutter
+  background-color: $box-bg-color
+  position: relative
+  // @include border-left-radius(0)
+  color: $normal-text-color
+  vertical-align: middle
+  &:before
+    content: ""
+    display: block
+    height: 0
+    width: 0
+    border: 15px solid transparent
+    border-right-color: $box-bg-color
+    position: absolute
+    left: -2*15px
+    top: 50%
+    margin-top: -15px
+  &:hover:before
+    border-right-color: $accent-color
+  @include bp-small
+    // display: block
+    text-align: left
+
+// .page-title
+//   @extend %column
+//   vertical-align: middle
+//   padding-left: $gutter
+//   padding-right: $gutter
+//   color: $box-bg-color
+//   font-weight: bold
+//   @include bp-small
+//     display: block
+
+
+.page-title-container
+  padding: 0 $gutter
+  padding-bottom: $small-line
+  @include bp-small
+    text-align: center
+  // margin-bottom: $small-line
+  // background-color: $secondary-text-color
+  // margin-left: $gutter
+  // margin-right: $gutter
+  // border-radius: 2px

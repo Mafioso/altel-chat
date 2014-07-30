@@ -1,0 +1,46 @@
+.modal-overlay
+  @extend %visually-hidden
+  display: block
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 900
+  // @include transition(all .3s)
+  .modal-open &
+    @extend %reset-visually-hidden
+    width: 100%
+    height: 100%
+
+// DISABLE SCROLLING
+.modal-open .adventure-time,
+.modal-open .nav-drawer
+  overflow: hidden
+  opacity: .2
+
+.modal
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  overflow: hidden
+  z-index: 1000
+  @extend %visually-hidden
+  &.active
+    @extend %reset-visually-hidden
+    animation: modal-appearance .4s $ease-in-out-sine
+  .container
+    padding-top: $normal-line
+    padding-bottom: $normal-line
+    height: 100%
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+
+@keyframes modal-appearance
+  from
+    opacity: 0
+    transform: translate3d(0,-12px,0)
+  to
+    opacity: 1
+    transform: translate3d(0,0,0)

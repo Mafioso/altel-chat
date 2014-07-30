@@ -1,0 +1,31 @@
+.mapLegend
+  padding: 0
+  margin: 0
+  // list-style-type: none
+.mapLegend-a,
+.mapLegend-b,
+.mapLegend-c
+  width: 100%
+  display: inline-block
+  padding-right: $gutter
+  margin: 0
+  padding: $gutter 0
+  &:before
+    position: relative
+    top: 3px
+    display: inline-block
+    width: 2*$gutter + 2px
+    height: 2*$gutter + 2px
+    margin-right: $baseline
+    vertical-align: bottom
+    background-color: white
+    border: 1px solid white
+    border-radius: 50%
+    content: ''
+
+.mapLegend-a:before
+  background-color: #F5D2B6
+.mapLegend-b:before
+  background-color: #F5F2BD
+.mapLegend-c:before
+  background-color: #DDDAD6

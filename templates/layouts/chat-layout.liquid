@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title %}Altel{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ "app.css" | asset_url | stylesheet_tag }}
+  {{ "modernizr.min.js" | asset_url | script_tag }}
+</head>
+<body class="{% block 'body-class' %}{% endblock %}">
+  <!--[if lt IE 8]>
+
+    <div class="browsehappy">
+      <div class="browsehappy-body">
+        <p>К сожалению Ваш браузер устарел.
+        Чтобы использовать все возможности сайта, загрузите и установите один из этих браузеров:</p>
+        <div id="browsers">
+          <a class="column gutter" href="http://www.apple.com/safari/" target="_blank">
+            {{ 'safari.png' | asset_url | image_tag }}
+            <div>Safari</div>
+          </a>
+          <a class="column gutter" href="http://www.google.com/chrome/" target="_blank">
+            {{ 'chrome.png' | asset_url | image_tag }}
+            <div>Chrome</div>
+          </a>
+          <a class="column gutter" href="http://www.mozilla-europe.org/" target="_blank">
+            {{ 'firefox.png' | asset_url | image_tag }}
+            <div>Firefox</div>
+          </a>
+          <a class="column gutter" href="http://www.opera.com/" target="_blank">
+            {{ 'opera.png' | asset_url | image_tag }}
+            <div>Opera</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  <![endif]-->
+
+
+
+  {% block content %}{% endblock %}
+
+  {{ "jquery.min.js" | asset_url | script_tag }}
+  {{ "handlebars-v1.3.0.js" | asset_url | script_tag }}
+  {% block js %}{% endblock %}
+</body>
+</html>

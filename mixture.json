@@ -1,0 +1,31 @@
+{
+  "convertHtml": {
+    "relativePaths": false
+  },
+  "customRuby": true,
+  "customRubyPath": "/Users/Vadim/.rvm/rubies/ruby-2.1.1|/Users/Vadim/.rvm/gems/ruby-2.1.1",
+  "debug": true,
+  "domain": null,
+  "lintScripts": false,
+  "modelSource": null,
+  "optimiseSVG": true,
+  "preprocessorLocations": [
+    "public"
+  ],
+  "preprocessorScriptOutput": "public/scripts",
+  "preprocessorStyleOutput": "public/styles",
+  "projectDescription": "Altel chat",
+  "projectName": "altel-chat",
+  "publishedId": "16227",
+  "sass": {
+    "useLibSass": false
+  },
+  "serverHostname": "altel.local",
+  "serverPort": null,
+  "simpleModePartnerServer": null,
+  "templateDefaultLayout": "layout",
+  "templateDefaultPage": "index",
+  "templateDirectory": "templates",
+  "type": "mixture",
+  "useCompass": true
+}

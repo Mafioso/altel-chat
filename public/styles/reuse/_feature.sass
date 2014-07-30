@@ -1,0 +1,46 @@
+.feature
+  position: relative
+  margin: (-1*$gutter) (-1*$gutter) 0
+  overflow: hidden
+
+.feature-cover
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: top center
+
+.feature-description
+  position: relative
+
+.featureHeader
+  padding: $gutter
+
+%feature-transition
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  height: 2em
+
+.feature-transition--top
+  @extend %feature-transition
+  top: 0
+  bottom: auto
+  background-image: linear-gradient(top, white, rgba(white, 0))
+.feature-transition--bottom
+  @extend %feature-transition
+  background-image: linear-gradient(bottom, white, rgba(white, .0))
+
+.featureInfo
+  padding: 1em $gutter 0
+  text-align: center
+
+  >p:last-child
+    margin-bottom: 0
+
+.feature-filler
+  height: 18em

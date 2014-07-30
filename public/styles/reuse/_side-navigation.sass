@@ -1,0 +1,45 @@
+.side-navigation-meta
+  padding-top: $gutter
+  padding-bottom: $gutter
+  @include bp-medium
+    display: none
+
+.side-navigation
+  @include scut-list-unstyled
+  @extend %normal-text
+  .side-navigation
+    padding-left: $gutter
+  @include bp-medium
+    display: none
+
+  .section-container &
+    @include bp-large
+      @include font($small-text, $small-line)
+
+.side-navigation-item
+  padding: $baseline
+  display: block
+  border-bottom: 1px solid $secondary-text-color
+  &.active
+    font-weight: bold
+
+  .section-container &
+    color: white
+    &:hover
+      color: $normal-text-color
+
+.side-navigation-group-title
+  padding: $gutter $baseline $gutter 0
+  @extend %normal-text
+  .back-button
+    @extend %small-text
+
+.mobile-side-navigation
+  padding: $gutter
+  display: none
+  @include bp-medium
+    display: block
+
+.mobile-side-navigation .side-navigation
+  @include bp-medium
+    display: block

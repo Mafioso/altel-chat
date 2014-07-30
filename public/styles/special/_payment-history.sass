@@ -1,0 +1,29 @@
+.payment-history
+  @include scut-list-unstyled
+  padding: $gutter $gutter
+  background-color: $box-bg-color
+  .split-title
+    font-weight: normal
+  .split
+    padding: $baseline 0
+  @include bp-small
+    @include font($extra-small-text, $small-line)
+.payment-history-header
+  @extend %extra-small-text
+  font-weight: 600
+  color: $secondary-text-color
+  .split-title
+    font-weight: 600
+.hms-time
+  color: $secondary-text-color
+.history-period
+  text-align: left
+  @extend %small-heading
+  font-weight: bold
+  padding: $gutter 0 ($baseline - 1px)
+  margin-bottom: $baseline
+  border-bottom: 1px solid $bg-color
+
+.history-select
+  vertical-align: middle
+  max-width: calculateRem(120px)

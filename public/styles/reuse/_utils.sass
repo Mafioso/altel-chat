@@ -1,0 +1,49 @@
+.text-left
+  text-align: left
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+.fluffy
+  padding: $gutter
+
+.no-leader
+  padding-top: 0 !important
+.gutter-leader
+  padding-top: $gutter !important
+.no-trailer
+  margin-bottom: 0 !important
+.gutter-trailer
+  margin-bottom: $gutter !important
+
+.no-break
+  white-space: nowrap
+
+.space
+  text-align: center
+  display: inline-block
+  width: 2em
+
+.vertical-space
+  display: block
+  height: 2em
+
+.hide-on-large
+  @include bp-large
+    display: none
+
+.wrong
+  color: #FF4D4D
+
+.list-unstyled
+  @include scut-list-unstyled
+
+.one-liner
+  width: 100%
+  display: block
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis

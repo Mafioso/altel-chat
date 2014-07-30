@@ -1,0 +1,75 @@
+*, *:before, *:after
+  box-sizing: border-box
+
+@import "mixins"
+@import "vars"
+@import "grid"
+@import "type"
+@import "form"
+
+html,
+body
+  height: 100%
+
+body
+  color: $normal-text-color
+  background-color: $bg-color
+  cursor: default
+  font-family: $helvetica
+
+.adventure-time
+  @extend %animation-hack
+  transition-property: transform opacity
+  transition-duration: .3s
+  transition-timing-function: ease-in-out
+  position: relative
+  z-index: 100
+  height: 100%
+  background-color: $bg-color
+
+
+// .no-overflowscrolling
+//   .adventure-time
+//     position: relative
+//     overflow: auto
+// html.no-overflowscrolling,
+// .no-overflowscrolling body
+//   height: auto
+//   overflow: auto
+
+.sticky-wrap
+  border-top: 3px solid $accent-color
+  min-height: 100%
+  margin-bottom: -228px
+  &:after
+    content: ""
+    display: block
+.sticky-wrap:after,
+.sticky-footer
+  height: 228px
+
+.sticky-footer
+  // background-color: lighten($bg-color, 4%)
+  border-bottom: 3px solid $accent-color
+
+%animation-hack,
+%accelerate
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0)
+  backface-visibility: hidden
+  transform: translateZ(0)
+
+%visually-hidden
+  @extend %animation-hack
+  @include scut-hide-visually
+
+%reset-visually-hidden
+  height: auto
+  width: auto
+  margin: auto
+  clip: auto
+
+%shadow
+  box-shadow: 0 2px 2px rgba(0,0,0,.2)
+
+figure
+  margin: 0

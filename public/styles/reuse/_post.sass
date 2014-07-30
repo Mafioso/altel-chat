@@ -1,0 +1,27 @@
+.post-preview
+  padding: $gutter
+  // border-bottom: 1px solid $bg-color
+  // margin-bottom: $normal-line
+.post-header h2
+  font-weight: 600
+.post-meta
+  @extend %small-text
+  padding-bottom: $small-line
+.readmore
+  @extend %small-text
+  padding-bottom: $normal-line
+
+.post-links
+  border-top: 1px solid $bg-color
+  padding-top: 10px
+  @extend %small-text
+  .button
+    @extend %small-button
+
+.post-subtitle
+  @extend %small-heading
+  color: $secondary-text-color
+  padding-top: $normal-heading-line
+  padding-bottom: $normal-heading-line
+  @include bp-small
+    @include font($normal-text, $normal-line)

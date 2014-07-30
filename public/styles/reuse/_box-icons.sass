@@ -1,0 +1,87 @@
+%box-icon
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-size: auto 40%
+
+  @include bp-medium
+    background-position: 100% 100%
+    background-size: auto 50%
+
+
+@mixin box-icon($icon)
+  .#{$icon}
+    @extend %box-icon
+    @include background-image("icons/#{$icon}")
+    &:after,
+    .box:hover &
+      @include background-image("icons/#{$icon}-hover")
+    &:after
+      content: ""
+
+@include box-icon('box-icon-altel')
+@include box-icon('box-icon-aon')
+@include box-icon('box-icon-block')
+@include box-icon('box-icon-business-devices')
+@include box-icon('box-icon-business-informer')
+@include box-icon('box-icon-business-internet')
+@include box-icon('box-icon-business-plans')
+@include box-icon('box-icon-business-services')
+@include box-icon('box-icon-business-special')
+@include box-icon('box-icon-dashboard')
+@include box-icon('box-icon-dashboard-bonus')
+@include box-icon('box-icon-dashboard-consumption')
+@include box-icon('box-icon-dashboard-payment-history')
+@include box-icon('box-icon-docs')
+@include box-icon('box-icon-exchange')
+@include box-icon('box-icon-faq')
+@include box-icon('box-icon-feedback')
+@include box-icon('box-icon-handshake')
+@include box-icon('box-icon-html')
+@include box-icon('box-icon-mifi')
+@include box-icon('box-icon-missed-call')
+@include box-icon('box-icon-missed-call')
+@include box-icon('box-icon-old-phone')
+@include box-icon('box-icon-order')
+@include box-icon('box-icon-pay-mobile')
+@include box-icon('box-icon-payment')
+@include box-icon('box-icon-payment-atm')
+@include box-icon('box-icon-payment-express')
+@include box-icon('box-icon-payment-portal')
+@include box-icon('box-icon-payment-pos')
+@include box-icon('box-icon-pdf')
+@include box-icon('box-icon-settings')
+@include box-icon('box-icon-settings-auto')
+@include box-icon('box-icon-site-internet')
+@include box-icon('box-icon-site-migration-cdma')
+@include box-icon('box-icon-site-migration-jet')
+@include box-icon('box-icon-site-migration-city')
+@include box-icon('box-icon-site-plans')
+@include box-icon('box-icon-site-roaming')
+@include box-icon('box-icon-star')
+@include box-icon('box-icon-sup-centres')
+@include box-icon('box-icon-sup-consultant')
+@include box-icon('box-icon-sup-coverage')
+@include box-icon('box-icon-sup-coverage-lte')
+@include box-icon('box-icon-tick')
+@include box-icon('box-icon-tonix')
+@include box-icon('box-icon-unlock')
+@include box-icon('box-icon-usb-modem')
+@include box-icon('box-icon-xls')
+@include box-icon('box-icon-lang')
+@include box-icon('box-icon-apn')
+@include box-icon('box-icon-addressbook')
+
+.plan-icon-gsm,
+.plan-icon-lte
+  background-position: 50% 40%
+  background-size: auto 20%
+
+  @include bp-small
+    background-size: auto 30%
+
+
+.plan-icon-gsm
+  @extend .box-icon-site-plans
+
+.plan-icon-lte
+  @extend .box-icon-site-internet

@@ -1,0 +1,159 @@
+.nav-container
+  padding: $gutter
+  @include bp-medium
+    padding-bottom: 0
+  .sticky-footer &
+    position: absolute
+    right: 0
+    bottom: 12px
+    left: 0
+
+.navigation,
+.nav-link
+  @include scut-list-unstyled
+
+.nav-button,
+.nav-link
+  color: inherit
+  &:hover
+    color: inherit
+
+.nav-link
+  display: inline-block
+
+.nav-link:hover
+  color: $accent-color
+  text-decoration: underline
+
+.navigation
+  color: $normal-text-color
+  padding: 0
+  @extend %small-text
+  @include bp-large
+    @include font($extra-small-text, $small-line)
+.nav-col
+  position: relative
+  vertical-align: middle
+.nav-col--footer
+  vertical-align: bottom
+.nav-col--footer:first-child
+  vertical-align: top
+
+.nav-level-2
+  padding-bottom: 12px
+  .nav-button,
+  .logotype
+    display: block
+    padding: $gutter
+  .logotype
+    padding-left: 0
+  .sticky-footer &
+    padding-bottom: 0
+.nav-level-1, .nav-level-0
+  .nav-button
+    display: block
+    padding: $gutter $gutter ($gutter - 2px)
+    background-color: $box-bg-color
+    text-transform: uppercase
+    border-bottom: 2px solid transparent
+    // border-radius: 2px
+    // border-left: 1px solid $bg-color
+    @extend %animation-hack
+    transition-property: border-color
+    transition-duration: .25s
+    transition-timing-function: ease-in-out
+    &:hover
+      border-color: $accent-color
+    &:active, &.active
+      color: $box-bg-color
+      background-color: $accent-color
+      // border-right-color: $accent-color
+  .nav-col:first-child .nav-button
+    @include border-left-radius(2px)
+  .nav-col:last-child .nav-button
+    @include border-right-radius(2px)
+
+.nav-level-1
+  @extend %shadow
+  @extend %small-text
+  width: 100%
+  font-weight: bold
+  color: #6c717a
+  text-align: justify
+  display: table
+  overflow: hidden
+  border-radius: 2px
+  .nav-button
+    vertical-align: middle
+    position: relative
+    text-align: center
+    display: table-cell
+    &:first-child
+      border-radius: 2px 0 0 2px
+    &:last-child
+      border-radius: 0 2px 2px 0
+
+
+.navigation.nav-level-1
+  @include bp-large
+    display: table
+  @include bp-medium
+    display: none
+
+.nav-logotype-container
+  vertical-align: middle
+  padding-right: $gutter
+
+.logotype
+  display: block
+  overflow: hidden
+
+// TODO: potential weakness (background-size: contain) doesn't work in IE8
+// Potential fix: https://github.com/louisremi/background-size-polyfill
+// Another fix is to provide smallest png to ie8 as background image
+.logotype-image
+  display: block
+  width: 100%
+  height: 27px
+  @include background-image("logotype")
+  background-size: contain
+  background-position: 0 50%
+  background-repeat: no-repeat
+  
+  footer &
+    height: 18px
+
+.lang-switcher
+  font-weight: normal
+
+.lang-switcher .active
+  font-weight: bold
+
+.nav-level-0
+  .nav-button
+    background-color: transparent
+    font-weight: 600
+    &:active, &.active
+      color: inherit
+      background-color: $box-bg-color
+
+
+// hide nav-cols on medium breakpoint
+.nav-toggle-container
+  text-align: right
+  display: none
+  vertical-align: middle
+.header, footer
+  .nav-col
+    @include bp-medium
+      display: none
+  .nav-toggle-container,
+  .nav-logotype-container
+    @include bp-medium
+      display: inline-block
+
+.phone-container
+  @include bp-medium
+    text-align: right
+  @include bp-small
+    text-align: left

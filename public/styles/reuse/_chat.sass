@@ -1,0 +1,170 @@
+.chat
+    width: 100%
+    height: 100%
+.chat-header
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 200
+    height: 4em
+    text-align: center
+    background-color: rgba(white, .96)
+
+.chat-header-ctrl
+    position: absolute
+    top: .5*$baseline
+    right: $gutter
+    button
+        @extend %large-heading
+        display: block
+        border-radius: 0
+        border: none
+        background-color: transparent
+        color: $secondary-text-color
+        padding: 0
+
+.chat-body
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 100
+    width: 100%
+    height: 100%
+    padding-top: 4em
+    padding-bottom: 6em
+    overflow-y: auto
+    background-color: white
+
+.chat-ctrls
+    position: absolute
+    bottom: 0
+    left: 0
+    z-index: 200
+    width: 100%
+    height: 5em
+    padding: $gutter
+    background-color: rgba(white, .96)
+
+
+.chat-ctrls-save-and-write
+    overflow: hidden
+button.chat-ctrls-save
+    float: left
+    padding-right: $baseline
+    padding-left: $baseline
+    margin-top: $baseline - 2px
+    background-color: transparent
+    border: none
+    border-radius: 0
+
+.chat-ctrls-write-view
+    overflow: hidden
+    padding: 0 $gutter
+input.chat-ctrls-write
+    display: block
+    width: 100%
+    border-width: 2px
+    &:focus
+        border-color: $accent-color
+        border-width: 2px
+.chat-ctrls-send
+    margin-top: $baseline - 2px
+    float: right
+.chat-msgs
+    padding: 0
+    margin: 0
+    list-style-type: none
+
+.chat-msg
+    @extend %accelerate
+    padding: 0 $gutter
+    zoom: 1
+    &:before,
+    &:after
+        content: " "
+        display: table
+    &:after
+        clear: both
+
+.chat-msg--system
+    color: $secondary-text-color
+    text-align: center
+    padding: 1em
+
+.chat-msg-pic
+    display: block
+    float: left
+    width: 5em
+    min-height: 1em
+    margin-bottom: $gutter
+    text-align: center
+    img
+        width: 3em
+        height: 3em
+        border-radius: 9999em
+.chat-msg-pic-caption
+    @extend %caption
+
+
+.chat-msg-view
+    padding: 0 $gutter $gutter
+    overflow: hidden
+.chat-msg-body
+    position: relative
+    padding: $gutter
+    background-color: $bg-color
+    border-radius: $gutter
+    &:before
+        position: absolute
+        top: 1em
+        z-index: 1
+        display: block
+        width: 0
+        height: 0
+        border: $baseline solid $bg-color
+        border-bottom-color: transparent
+        content: ''
+.chat-msg--my
+    transform-origin: center bottom
+    animation: myMsgPopIn .2s ease-in-out
+    .chat-msg-body
+        color: white
+        background-color: $accent-color
+        &:before
+            right: -2 * $baseline
+            border-color: $accent-color
+            border-right-color: transparent
+            border-bottom-color: transparent
+.chat-msg--their
+    animation: msgPopIn .2s ease-in-out
+    .chat-msg-body
+        transform-origin: left top
+        animation: msgBodyPopIn .4s ease-in-out
+        &:before
+            left: -2 * $baseline
+            border-left-color: transparent
+
+@keyframes myMsgPopIn
+    from
+        opacity: 0
+        transform: translateY(10%)
+    to
+        opacity: 1
+        transform: translateY(0)
+
+@keyframes msgPopIn
+    from
+        opacity: 0
+        transform: translateX(-10%)
+    to
+        opacity: 1
+        transform: translateX(0)
+
+@keyframes msgBodyPopIn
+    from
+        opacity: 0
+        transform: scale(.98)
+    to
+        opacity: 1
+        transform: scale(1)

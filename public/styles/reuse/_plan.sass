@@ -1,0 +1,249 @@
+.plan-title
+  @extend %small-heading
+  color: $normal-text-color
+  text-align: center
+  .active &
+    color: $accent-color
+  .epic-plan &
+    @extend %normal-heading
+    @extend %gutter
+  // .box:hover .epic-plan-visual-container &
+  //   color: white
+.title
+  @extend %normal-heading
+  font-weight: 600
+  color: $normal-text-color
+  .epic-plan &
+    @extend %gutter
+.plan-subtitle
+  color: $normal-text-color
+  text-align: center
+  // padding-top: $baseline
+  padding-bottom: $baseline
+  .epic-plan &
+    @extend %small-heading
+    // text-align: left
+    @extend %gutter
+  // .planbox &,
+  // .box:hover .epic-plan-visual-container &
+  //   color: white
+
+.connection-howto
+  // background-color: $bg-color
+  // radius: 2px
+  @extend %small-text
+  padding: $gutter
+  // margin: $gutter
+
+.plan-benefits
+  text-align: center
+  @extend %small-text
+  @extend %animation-hack
+  // @include transition(color .25s ease-in-out)
+  color: $secondary-text-color
+  .box:hover &
+    color: $normal-text-color
+  .epic-plan &
+    @extend %normal-text
+    text-align: left
+    color: $normal-text-color
+    // border-top: 1px solid $bg-color
+    padding: ($normal-heading-line) $gutter $normal-heading-line
+  // .planbox &,
+  .box:hover .epic-plan-visual-container &
+    color: white
+
+.plan-cta-container
+  text-align: center
+  padding: $small-line $gutter $normal-line
+  .button
+    padding: 9px 2*$gutter
+  @include bp-small
+    padding-bottom: $small-line
+
+.cta-br
+  @include bp-small
+    display: block !important
+    width: 100% !important
+    // text-align:
+
+
+// .epic-plan-graphics
+//   height: 12em
+//   background-size: contain
+//   background-position: 0 50%
+
+//
+// .epic-plan .planbox-icon
+//   background-position: 50% 40%
+//   background-size: auto 40%
+
+
+
+
+.epic-plan-visual
+  position: relative
+  min-height: 24em
+  background-size: cover
+  background-position: 50% 50%
+  background-repeat: no-repeat
+
+
+  .box-footer
+    color: $normal-text-color
+    border: none
+    @extend %box-content-setup
+    top: auto
+  @include bp-medium
+    height: auto
+    // .box-footer
+    //   position: relative
+
+.plan-description
+  text-align: center
+  padding-top: ($normal-line - 1px)
+  border-top: 1px solid $bg-color
+
+.plan-table, .common-table
+  text-align: left
+  @extend %small-text
+  border-top: 1px solid $bg-color
+  margin-bottom: $normal-line
+  ul
+    padding-bottom: 0
+  td,
+  th
+    padding: $baseline
+  th
+    vertical-align: bottom
+.plan-table--alternate
+  tr:nth-child(2n)
+    background-color: $bg-color
+
+.plan-table-title, .common-table-title
+  padding: ($gutter - 1) $baseline $gutter
+  text-align: left
+.common-table-title
+  padding: $gutter $baseline
+.common-table
+  border-top: none
+  @include bp-small
+    @include font($extra-small-text, $small-line)
+    ul
+      padding-left: 0
+  th,
+  td
+    padding: $baseline $baseline ($baseline - 1px)
+  tr
+    border-bottom: 1px solid $bg-color
+    &:last-child
+      border-bottom: transparent
+
+.plan-table-a
+  padding: $baseline
+  width: (3/4)*100%
+.plan-table-b
+  width: (1/4)*100%
+  text-align: right
+
+.cta-table
+  @extend .plan-table
+  border-top: 0
+  p
+    padding: 0
+
+.footnotes
+  text-align: left
+  color: $secondary-text-color
+  @extend %extra-small-text
+  padding: $gutter
+.footnote
+  position: relative
+  padding-left: $gutter
+
+.phone-command
+  font-family: $monospace
+  display: block
+  border: 2px solid $accent-color
+  border-radius: 2px
+  padding: ($gutter - 2px)
+  margin-bottom: $baseline
+  background-color: rgba(255,255,255,.8)
+  @extend %normal-text
+  font-weight: bold
+  @include bp-small
+    padding: ($baseline - 1px)
+    @include font($small-text, $small-line)
+
+// .epic-plan-visual-hover,
+.planbox
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: 50% 50%
+
+//
+// .epic-plan-visual-container
+//   position: relative
+//   overflow: hidden
+//   margin: -1*$gutter -1*$gutter 0
+//   // padding: 2*$gutter
+//
+// .epic-plan-visual-hover
+//   @extend %box-animation-setup
+//   @extend %box-content-setup
+//   transition-property: opacity
+//   opacity: 0
+//   .box:hover &
+//     opacity: 1
+
+.devices .plan-title
+  position: relative
+  @extend %normal-text
+  z-index: 1
+  max-height: 2*$normal-line
+  padding: 0
+  margin: 0
+  overflow: hidden
+  font-weight: bold
+.devices .plan-device-price
+  position: relative
+  z-index: 1
+.devices .plan-device-figure
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: 80%
+
+.devices .button
+  @extend %small-text
+.devices .box-footer
+  padding: $gutter 0 1.5*$gutter
+
+.plan-device-price
+  @extend %small-text
+  position: relative
+  margin: 0 -1*$gutter
+  padding: $baseline 0
+  color: $secondary-text-color
+  overflow: hidden
+.plan-device-price-bg
+  @extend %box-animation-setup
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  display: block
+  background-color: $accent-color
+  transform: translateX(100%)
+  .box:hover &
+    transform: translateX($gutter)
+.plan-device-price-body
+  @extend %box-animation-setup
+  position: relative
+  .box:hover &
+    color: white

@@ -1,0 +1,71 @@
+$nav-drawer-width: 280px
+$s-nav-drawer-width: 280px - 36px
+.nav-drawer
+  @extend %animation-hack
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  z-index: 1
+  display: block
+  width: $nav-drawer-width
+  overflow: hidden
+  background-color: $nav-drawer-bg-color
+  transition-property: transform opacity
+  transition-duration: .3s
+  transition-timing-function: ease-in-out
+  .nav-drawer-open &
+    display: block
+  @include bp-small
+    width: $s-nav-drawer-width
+.nav-drawer-overlay
+  @extend %visually-hidden
+  display: block
+  position: fixed
+  left: 0
+  top: 0
+  bottom: 0
+  right: $nav-drawer-width
+  z-index: 800
+  // @include transition(all .3s)
+  .nav-drawer-open &
+    @extend %reset-visually-hidden
+  @include bp-small
+    right: $s-nav-drawer-width
+.nav-drawer-open
+  .adventure-time
+    overflow: hidden
+    transform: translate3d(-1*$nav-drawer-width,0,0)
+    @include bp-small
+      transform: translate3d(-1*$s-nav-drawer-width,0,0)
+
+.nav-drawer-toggle
+  display: inline-block
+  vertical-align: middle
+  img
+    display: block
+    vertical-align: middle
+    width: 24px
+    height: 24px
+    width: calculateRem(24px)
+    height: calculateRem(24px)
+    @include background-image("icons/button-icon-menu")
+    background-repeat: no-repeat
+
+.nav-drawer-content
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+  height: 100%
+
+.nav-drawer-list
+  padding-top: $gutter
+  @include scut-list-unstyled
+.nav-drawer-list-item
+  display: block
+  padding: $gutter
+  color: $secondary-text-color
+  &:hover,
+  &.active
+    color: white
+  &.active
+    font-weight: bold

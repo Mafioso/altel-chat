@@ -1,0 +1,35 @@
+.sticky-footer footer
+  @extend %animation-hack
+  position: relative
+  color: $secondary-text-color
+  // remember the border!
+  height: 228px
+  .logotype-image
+    @include background-image("logotype")
+    background-position: 50% 50%
+
+.footer-primary
+  overflow: hidden
+.footer-secondary
+  float: right
+  .nav-button
+    padding-right: 0 !important
+
+.footer-primary-logotype
+  float: left
+.footer-primary-body
+  overflow: hidden
+  // display: none
+  @include bp-medium
+    display: none
+.fpb-list
+  display: block
+  position: relative
+  @include scut-side-lined($color: $secondary-text-color)
+  @include bp-large
+    display: block
+  @include bp-medium
+    display: none
+  .nav-button
+    max-width: 80%
+    display: inline-block !important

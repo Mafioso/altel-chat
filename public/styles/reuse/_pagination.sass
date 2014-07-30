@@ -1,0 +1,28 @@
+.pagination
+  @include scut-list-unstyled
+  padding: $gutter
+  text-align: center
+  li
+    padding: 0 $baseline
+    display: inline-block
+    @include bp-medium
+      display: none
+    &:first-child,
+    &:last-child
+      @include bp-medium
+        display: inline-block
+  .pagination-link
+    display: block
+    padding: $baseline $gutter
+    background-color: $box-bg-color
+    box-shadow: 0 1px 2px rgba(0,0,0,.25)
+    border-radius: $radius
+    color: $normal-text-color
+    &.active,
+    &:hover
+      background-color: $accent-color
+      color: white
+    &.unavailable
+      opacity: .3
+      &:hover
+        cursor: default
